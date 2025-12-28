@@ -47,7 +47,6 @@ export function AdminVideoList({ videos: initialVideos }: AdminVideoListProps) {
           key={video._id?.toString()}
           className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background-elevated)] border border-white/5"
         >
-          {/* Thumbnail */}
           <div className="w-20 h-28 rounded-lg bg-[var(--background-subtle)] overflow-hidden flex-shrink-0">
             {video.thumbnailUrl ? (
               <img
@@ -64,7 +63,6 @@ export function AdminVideoList({ videos: initialVideos }: AdminVideoListProps) {
             )}
           </div>
 
-          {/* Info */}
           <div className="flex-1 min-w-0">
             <h3 className="font-medium truncate">{video.title}</h3>
             {video.description && (
@@ -77,7 +75,6 @@ export function AdminVideoList({ videos: initialVideos }: AdminVideoListProps) {
             </p>
           </div>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <a
               href={video.videoUrl}

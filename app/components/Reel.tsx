@@ -51,7 +51,6 @@ function ReelComponent({ video, isActive, onLike, isLiked = false, likeCount = 0
 
   const handleTap = useCallback(
     (e: React.MouseEvent | React.TouchEvent) => {
-      // Ignore if tapping on controls
       const target = e.target as HTMLElement;
       if (target.closest("[data-controls]")) return;
       togglePlay();

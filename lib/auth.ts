@@ -58,11 +58,9 @@ export const authOptions: NextAuthOptions = {
                 try {
                     await connectToDatabase();
                     
-                    // Check if user exists
                     let existingUser = await User.findOne({ email: user.email });
                     
                     if (!existingUser) {
-                        // Create new user for Google sign-in
                         const role = ADMIN_EMAILS.includes(user.email!) ? "admin" : "user";
                         existingUser = await User.create({
                             email: user.email,
@@ -71,17 +69,14 @@ export const authOptions: NextAuthOptions = {
                             role,
                         });
                     } else {
-                        // Update existing user's image/name from Google
                         existingUser.image = user.image || existingUser.image;
                         existingUser.name = user.name || existingUser.name;
-                        // Update role if admin email
                         if (ADMIN_EMAILS.includes(user.email!)) {
                             existingUser.role = "admin";
                         }
                         await existingUser.save();
                     }
                     
-                    // Attach MongoDB user id and role to the user object
                     user.id = existingUser._id.toString();
                     user.role = existingUser.role;
                 } catch (error) {

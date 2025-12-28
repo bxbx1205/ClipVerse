@@ -26,11 +26,9 @@ export async function POST(
     const alreadyLiked = video.likedBy?.includes(userEmail);
 
     if (alreadyLiked) {
-      // Unlike
       video.likedBy = video.likedBy.filter((email: string) => email !== userEmail);
       video.likes = Math.max(0, (video.likes || 0) - 1);
     } else {
-      // Like
       if (!video.likedBy) video.likedBy = [];
       video.likedBy.push(userEmail);
       video.likes = (video.likes || 0) + 1;

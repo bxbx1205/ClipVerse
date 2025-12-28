@@ -11,7 +11,6 @@ export function FeedHeader() {
 
   return (
     <>
-      {/* Header - overlays the video */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 flex items-center justify-between pointer-events-none">
         <Link href="/" className="flex items-center pointer-events-auto">
           <span className="text-lg font-bold tracking-tight drop-shadow-lg">

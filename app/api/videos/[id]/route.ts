@@ -24,7 +24,6 @@ export async function DELETE(
       return NextResponse.json({ error: "Video not found" }, { status: 404 });
     }
 
-    // Check if user owns this video
     if (video.userEmail !== session.user.email) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }

@@ -28,7 +28,6 @@ async function getVideos() {
 export default async function AdminPage() {
   const session = await getServerSession(authOptions);
   
-  // Check if user is admin
   if (!session || session.user.role !== "admin") {
     redirect("/feed");
   }
@@ -37,7 +36,6 @@ export default async function AdminPage() {
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
-      {/* Header */}
       <nav className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between bg-[var(--background)]/80 backdrop-blur-sm border-b border-white/5">
         <div className="flex items-center gap-4">
           <Link href="/feed" className="flex items-center">
@@ -59,7 +57,6 @@ export default async function AdminPage() {
       </nav>
 
       <div className="max-w-6xl mx-auto px-6 py-8">
-        {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           <div className="p-4 rounded-xl bg-[var(--background-elevated)] border border-white/5">
             <p className="text-2xl font-semibold">{stats.videoCount}</p>
@@ -79,7 +76,6 @@ export default async function AdminPage() {
           </div>
         </div>
 
-        {/* Videos Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Manage Videos</h2>

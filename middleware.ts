@@ -10,7 +10,6 @@ export default withAuth(
             authorized: ({ token, req }) => {
                 const { pathname } = req.nextUrl
 
-                // Public routes - no auth required
                 if (
                     pathname.startsWith("/api/auth") ||
                     pathname === "/login" ||
@@ -22,7 +21,6 @@ export default withAuth(
                     return true;
                 }
 
-                // Protected routes require token
                 return !!token
             }
         }

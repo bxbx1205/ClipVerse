@@ -44,7 +44,6 @@ export default function RegisterPage() {
         return;
       }
 
-      // Redirect to login after successful registration
       router.push("/login?registered=true");
     } catch (err) {
       setError("Something went wrong. Please try again.");

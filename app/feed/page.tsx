@@ -9,7 +9,6 @@ async function getVideos(): Promise<Ivideo[]> {
       .sort({ createdAt: -1 })
       .lean();
     
-    // Serialize MongoDB documents
     return JSON.parse(JSON.stringify(videos));
   } catch (error) {
     console.error("Failed to fetch videos:", error);
