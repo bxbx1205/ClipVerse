@@ -30,7 +30,7 @@ function ReelComponent({ video, isActive, onLike, isLiked = false, likeCount = 0
   } = useVideoPlayer({
     autoPlay: false,
     loop: true,
-    muted: true,
+    muted: false,
   });
 
   const setRefs = useCallback(
